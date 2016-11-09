@@ -1,0 +1,9 @@
+# Docker
+/docker/docker-compose.env
+/docker/.home-developer
+
+# Composer
+/vendor
+
+# PHP CS
+.php_cs.cache
