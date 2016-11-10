@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "MMC\\SonataAdmin\\": "src/"
+            "MMC\\SonataAdminBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MMC\\SonataAdmin\\": "tests/"
+            "MMC\\SonataAdminBundle\\": "tests/"
         }
     },
     "require": {

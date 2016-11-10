@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="User List">
+                <source>User List</source>
+                <target>Liste des utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="User Management">
+                <source>User Management</source>
+                <target>Gestion des utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Nom de l'utilisateur</target>
+            </trans-unit>
+            <trans-unit id="Email">
+                <source>Email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="Enabled">
+                <source>Enabled</source>
+                <target>Activé</target>
+            </trans-unit>
+            <trans-unit id="Action">
+                <source>Action</source>
+                <target>Action</target>
+            </trans-unit>
+            <trans-unit id="Detail">
+                <source>Detail</source>
+                <target>Détail</target>
+            </trans-unit>
+            <trans-unit id="User">
+                <source>User</source>
+                <target>Utilisateur</target>
+            </trans-unit>
+            <trans-unit id="Locked">
+                <source>Locked</source>
+                <target>Bloqué</target>
+            </trans-unit>
+            <trans-unit id="Plain Password">
+                <source>Plain Password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="Roles">
+                <source>Roles</source>
+                <target>Rôles</target>
+            </trans-unit>
+            <trans-unit id="User Create">
+                <source>User Create</source>
+                <target>Création d'un utilisateur</target>
+            </trans-unit>
+            <trans-unit id="Administrator">
+                <source>Administrator</source>
+                <target>Administrateur</target>
+            </trans-unit>
+            <trans-unit id="Super Administrator">
+                <source>Super Administrator</source>
+                <target>Super Administrateur</target>
+            </trans-unit>
+            <trans-unit id="My account">
+                <source>My account</source>
+                <target>Mon compte</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,7 @@
+{% block image_preview_widget -%}
+    {% if value is not empty %}
+        <div class="text-center">
+            <img src="{{ value|imagine_filter('admin_poster') }}" />
+        </div>
+    {% endif %}
+{%- endblock %}
