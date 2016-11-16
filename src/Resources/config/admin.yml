@@ -18,15 +18,3 @@ services:
         class: 'MMC\SonataAdminBundle\Datagrid\PagerForGroupByQuery'
         arguments:
             - '@doctrine.orm.entity_manager'
-
-    mmc_sonata_admin.user:
-        class: 'MMC\SonataAdminBundle\Admin\UserAdmin'
-        arguments:
-            - ~
-            - 'MMC\FosUserBundle\Entity\User'
-            - ~
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Administration, label: User Management }
-        calls:
-            - [ setTranslationDomain, [UserAdmin]]
-            - [ setUserManager, [ '@fos_user.user_manager']]
