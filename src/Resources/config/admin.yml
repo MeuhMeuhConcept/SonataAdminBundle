@@ -1,0 +1,20 @@
+services:
+    mmc_sonata_admin.manager.orm_dto:
+        class: 'MMC\SonataAdminBundle\Manager\DTOManager'
+        arguments:
+            - '@doctrine'
+
+    mmc_sonata_admin.datagrid_builder:
+        class: 'MMC\SonataAdminBundle\Datagrid\DatagridBuilder'
+        arguments:
+            - '@form.factory'
+            - '@sonata.admin.builder.filter.factory'
+            - '@sonata.admin.guesser.orm_datagrid_chain'
+            - '%form.type_extension.csrf.enabled%'
+        calls:
+            - [ addPager, ['pager_for_group_by_query', '@mmc_sonata_admin.pager.for_group_by_query']]
+
+    mmc_sonata_admin.pager.for_group_by_query:
+        class: 'MMC\SonataAdminBundle\Datagrid\PagerForGroupByQuery'
+        arguments:
+            - '@doctrine.orm.entity_manager'

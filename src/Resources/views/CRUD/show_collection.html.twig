@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+{% spaceless %}
+    {% if value is not empty %}
+        {{ value|join(', ') }}
+    {% endif %}
+{% endspaceless %}
+{%- endblock %}

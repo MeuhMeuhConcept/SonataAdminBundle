@@ -1,0 +1,68 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block sonata_top_nav_menu %}
+    <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+            {% for block in blocks.nav_top|default([]) %}
+                {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
+            {% endfor %}
+
+            {% block sonata_top_nav_menu_items %}
+            {% endblock %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block sonata_admin_content_actions_wrappers %}
+    {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}
+        <ul class="nav navbar-nav navbar-right">
+        {% if _actions|split('</a>')|length > 6 %}
+            <li class="dropdown sonata-actions">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                    {{ _actions|raw }}
+                </ul>
+            </li>
+        {% else %}
+            {{ _actions|raw }}
+        {% endif %}
+        </ul>
+    {% endif %}
+{% endblock sonata_admin_content_actions_wrappers %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="/dist/BackBundle/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            menubar: false,
+            oninit : "setPlainText",
+            plugins: [ 'link paste' ],
+            toolbar: [
+                'undo redo',
+                'formatselect styleselect',
+                'bold italic underline',
+                'alignleft aligncenter alignright',
+                'bullist numlist outdent indent',
+                'link'
+            ].join(" | "),
+            language_url : '/dist/BackBundle/tinymce/langs/fr_FR.js',
+            body_class: 'tinymce',
+            content_css: [
+                '/dist/FrontBundle/css/concat-front.min.css'
+            ],
+            block_formats: 'Paragraph=p;' +
+                'Heading 1=h1;' +
+                'Heading 2=h2;' +
+                'Heading 3=h3;' +
+                'Heading 4=h4;',
+            style_formats: [
+                {title: 'Titre 1 - Art', block: 'h1', classes: 'art-title'},
+                {title: 'Titre 2 - Art', block: 'h2', classes: 'art-title'}
+            ]
+        });
+    </script>
+    <script src="/dist/BackBundle/main.js"></script>
+{% endblock javascripts %}

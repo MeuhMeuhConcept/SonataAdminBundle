@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="Dashboard">
+                <source>Dashboard</source>
+                <target>Tableau de bord</target>
+            </trans-unit>
+            <trans-unit id="Content">
+                <source>Content</source>
+                <target>Contenu</target>
+            </trans-unit>
+            <trans-unit id="Administration">
+                <source>Administration</source>
+                <target>Administration</target>
+            </trans-unit>
+            <trans-unit id="Export">
+                <source>Export</source>
+                <target>Export</target>
+            </trans-unit>
+
+            <trans-unit id="link_action_delete">
+                <source>link_action_delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
+
+            <trans-unit id="card_no_draft_item">
+                <source>card_no_draft_item</source>
+                <target>Cet élément ne contient pas de version de brouillon.</target>
+            </trans-unit>
+            <trans-unit id="card_validation_successfully">
+                <source>card_validation_successfully</source>
+                <target>La version de brouillon a été validée.</target>
+            </trans-unit>
+            <trans-unit id="link_action_validate">
+                <source>link_action_validate</source>
+                <target>Valider le brouillon</target>
+            </trans-unit>
+
+            <trans-unit id="card_delete_draft_successfully">
+                <source>card_delete_draft_successfully</source>
+                <target>La version de brouillon a été supprimée.</target>
+            </trans-unit>
+            <trans-unit id="link_action_delete_draft">
+                <source>link_action_delete_draft</source>
+                <target>Supprimer le brouillon</target>
+            </trans-unit>
+            <trans-unit id="title_validate">
+                <source>title_validate</source>
+                <target>Confirmer la validation du brouillon</target>
+            </trans-unit>
+            <trans-unit id="message_validate_confirmation">
+                <source>message_validate_confirmation</source>
+                <target>Êtes-vous sûr de vouloir valider le brouillon de l'élément "%object%" sélectionné ?</target>
+            </trans-unit>
+            <trans-unit id="btn_validate">
+                <source>btn_validate</source>
+                <target>Oui, je valide</target>
+            </trans-unit>
+
+            <trans-unit id="title_delete_draft">
+                <source>title_delete_draft</source>
+                <target>Conrimer la suppression du brouillon</target>
+            </trans-unit>
+            <trans-unit id="message_delete_draft_confirmation">
+                <source>message_delete_draft_confirmation</source>
+                <target>Êtes-vous sûr de vouloir supprimer le brouillon de l'élément "%object%" sélectionné?</target>
+            </trans-unit>
+
+            <trans-unit id="item.valid">
+                <source>item.valid</source>
+                <target>Valide</target>
+            </trans-unit>
+            <trans-unit id="item.invalid">
+                <source>item.invalid</source>
+                <target>Invalide</target>
+            </trans-unit>
+            <trans-unit id="item.creating">
+                <source>item.creating</source>
+                <target>Sera déterminé après l'enregistrement</target>
+            </trans-unit>
+
+            <trans-unit id="message_validate_confirmation_invalide_item">
+                <source>message_validate_confirmation_invalide_item</source>
+                <target>Ce brouillon n'est pas valide !</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

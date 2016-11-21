@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+{% spaceless %}
+    {% if value is not empty %}
+        <div class="text-center">
+            <img src="{{ value|imagine_filter('admin_poster') }}" />
+        </div>
+    {% endif %}
+{% endspaceless %}
+{%- endblock %}

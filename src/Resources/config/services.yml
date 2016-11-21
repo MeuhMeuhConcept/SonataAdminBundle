@@ -1,0 +1,12 @@
+services:
+    mmc_sonata_admin.user_voter:
+        class: MMC\SonataAdminBundle\Security\Voter\UserVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
+
+    mmc_sonata_admin.form.type.image_preview:
+        class: MMC\SonataAdminBundle\Form\Type\ImagePreviewType
+        tags:
+            - { name: form.type }

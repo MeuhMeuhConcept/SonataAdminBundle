@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+{% spaceless %}
+    {% if value is not empty %}
+        <div class="textarea-frame" data-stylesheets="/dist/FrontBundle/css/concat-front.min.css,tintin">
+            {{ value|raw }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{%- endblock %}

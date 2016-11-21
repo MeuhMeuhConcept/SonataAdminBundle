@@ -1,0 +1,19 @@
+{
+  "name": "mmc_sonata_admin",
+  "version": "1.0.0",
+  "description": "mmc_sonata_admin",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdeblaise/sf-sandbox.git"
+  },
+  "author": "",
+  "license": "private",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "del": "^2.2.1"
+  }
+}
