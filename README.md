@@ -54,6 +54,14 @@ Add SonataAdmin configuration (dashboard, templates, security,...) and form them
 
 ```yaml
 # app/config/config.yml
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
 sonata_admin:
     title : ExampleOfTitle
     dashboard:
