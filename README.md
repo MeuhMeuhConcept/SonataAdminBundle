@@ -30,7 +30,7 @@ public function registerBundles()
 
         // ...
 
-        new MMC\FosUserBundle\MMCSonataAdminBundle(),
+        new MMC\SonataAdminBundle\MMCSonataAdminBundle(),
 
         // These are the other bundles the SonataAdminBundle relies on
         new Sonata\CoreBundle\SonataCoreBundle(),
