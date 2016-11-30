@@ -18,7 +18,10 @@ Via composer
 ```bash
 composer require mmc/sonata-admin-bundle
 ```
-
+Installs bundles web assets under a public web directory
+```bash
+bin/console assets:install
+```
 ## Configuration
 
 ### Add bundles
@@ -80,7 +83,6 @@ sonata_admin:
 twig:
     form_themes:
         - 'SonataCoreBundle:Form:datepicker.html.twig'
-        - 'MMCSonataAdminBundle:Form:image_preview.html.twig'
 ```
 Add roles hierarchy :
 ```yaml
@@ -103,4 +105,33 @@ Add Sonata Admin route :
 mmc_sonata_admin:
     resource: "@MMCSonataAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
+```
+### Use image preview
+
+Install liip/imagine-bundle
+
+```json
+# ./composer.json
+{
+    /* ..... */
+
+    "require": {
+        // ...
+
+        "liip/imagine-bundle": "^1.6",
+
+        // ...
+    },
+
+    /* ..... */
+}
+```
+
+Configure form theme :
+```yaml
+# app/config/config.yml
+
+twig:
+    form_themes:
+        - 'MMCSonataAdminBundle:Form:image_preview.html.twig'
 ```
