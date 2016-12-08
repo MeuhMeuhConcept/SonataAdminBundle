@@ -85,6 +85,10 @@
                 <target>Ce brouillon n'est pas valide !</target>
             </trans-unit>
 
+            <trans-unit id="sonata.admin.group.administration">
+                <source>sonata.admin.group.administration</source>
+                <target>Administration</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
