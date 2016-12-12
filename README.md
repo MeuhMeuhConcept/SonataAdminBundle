@@ -66,15 +66,6 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
-    title : ExampleOfTitle
-    dashboard:
-        blocks: []
-        groups:
-            sonata.admin.group.content:
-                label:           Content
-                icon:            '<i class="fa fa-th"></i>'
-                items: ~ # Add class item here
-
     templates:
         layout: MMCSonataAdminBundle::sonata_layout.html.twig
     security:
@@ -134,4 +125,22 @@ Configure form theme :
 twig:
     form_themes:
         - 'MMCSonataAdminBundle:Form:image_preview.html.twig'
+```
+##Customisation
+
+###Sonata Admin
+
+Example of customization :
+```yaml
+#app/config/config.yml
+
+sonata_admin:
+    title : ExampleOfTitle
+    dashboard:
+        blocks: []
+        groups:
+            sonata.admin.group.myCustomGroup:
+                label:           myCustomLabel
+                icon:            '<i class="fa fa-th"></i>'
+                items: ~ # Add class item here
 ```
