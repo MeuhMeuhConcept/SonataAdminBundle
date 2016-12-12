@@ -66,15 +66,6 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
-    title : ExampleOfTitle
-    dashboard:
-        blocks: []
-        groups:
-            sonata.admin.group.content:
-                label:           Content
-                icon:            '<i class="fa fa-th"></i>'
-                items: ~ # Add class item here
-
     templates:
         layout: MMCSonataAdminBundle::sonata_layout.html.twig
     security:
@@ -106,26 +97,11 @@ mmc_sonata_admin:
     resource: "@MMCSonataAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
 ```
-### Use image preview
+### Image preview
 
 Install liip/imagine-bundle
 
-```json
-# ./composer.json
-{
-    /* ..... */
-
-    "require": {
-        // ...
-
-        "liip/imagine-bundle": "^1.6",
-
-        // ...
-    },
-
-    /* ..... */
-}
-```
+[Official documentation](http://symfony.com/doc/current/bundles/LiipImagineBundle/installation.html)
 
 Configure form theme :
 ```yaml
@@ -134,4 +110,89 @@ Configure form theme :
 twig:
     form_themes:
         - 'MMCSonataAdminBundle:Form:image_preview.html.twig'
+```
+
+Add filters
+```yaml
+# app/config/config.yml
+
+liip_imagine :
+
+    resolvers :
+        default :
+            web_path : ~
+
+    filter_sets :
+        cache : ~
+        admin_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size : [90, 50], mode : outbound }
+
+        admin_poster:
+            quality: 85
+            filters:
+                thumbnail: { size : [400, 300], mode : inset }
+
+        actuality_illustration:
+            quality: 85
+            filters:
+                upscale: { min : [424, 185] }
+                thumbnail: { size : [424, 185], mode : outbound }
+
+        activity_vignette:
+            quality: 85
+            filters:
+                upscale: { min : [272, 232] }
+                thumbnail: { size : [272, 232], mode : outbound }
+
+        activity_cover_photo:
+            quality: 85
+            filters:
+                upscale: { min : [863, 349] }
+                thumbnail: { size : [863, 349], mode : outbound }
+
+        guest_vignette:
+            quality: 85
+            filters:
+                upscale: { min : [272, 232] }
+                thumbnail: { size : [272, 232], mode : outbound }
+
+        guest_cover_photo:
+            quality: 85
+            filters:
+                upscale: { min : [863, 349] }
+                thumbnail: { size : [863, 349], mode : outbound }
+
+        exponent_vignette:
+            quality: 85
+            filters:
+                upscale: { min : [116, 116] }
+                thumbnail: { size : [116, 116], mode : outbound }
+```
+
+Note : If php_exif extension is not enable in your PHP container, add the following line :
+```yaml
+# app/config/parameters.yml && app/config/parameters.yml.dist
+
+liip_imagine.meta_data.reader.class: Imagine\Image\Metadata\DefaultMetadataReader
+```
+
+## Customize
+
+### Sonata Admin
+
+Example :
+```yaml
+# app/config/config.yml
+
+sonata_admin:
+    title : ExampleOfTitle
+    dashboard:
+        blocks: []
+        groups:
+            sonata.admin.group.myCustomGroup:
+                label:           myCustomLabel
+                icon:            '<i class="fa fa-th"></i>'
+                items: ~ # Add class item here
 ```
