@@ -1,8 +1,8 @@
 {
-    "name": "mmc/sonata-admin-bundle",
+    "name": "meuhmeuhconcept/sonata-admin-bundle",
     "license": "proprietary",
     "type": "bundle",
-    "description": "SonataAdmin implementation for MMC",
+    "description": "SonataAdmin implementation for MeuhMeuhConcept",
     "authors": [
         {
             "name": "Jean-Noël Germon",

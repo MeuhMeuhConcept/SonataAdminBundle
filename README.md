@@ -7,7 +7,7 @@ Implatation of SonataAdmin for MeuhMeuhConcept
 
 Via composer
 ```bash
-composer require meuhmmeuhconcept/sonata-admin-bundle
+composer require meuhmeuhconcept/sonata-admin-bundle
 ```
 
 Installs bundles web assets under a public web directory
