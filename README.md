@@ -1,5 +1,5 @@
 # MMC SonataAdminBundle
-
+[![Build Status](https://travis-ci.org/MeuhMeuhConcept/SonataAdminBundle.svg?branch=master)](https://travis-ci.org/MeuhMeuhConcept/SonataAdminBundle)
 Implatation of SonataAdmin for MMC
 
 ## Installation
