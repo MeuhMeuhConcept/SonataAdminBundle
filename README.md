@@ -134,42 +134,6 @@ liip_imagine :
             quality: 85
             filters:
                 thumbnail: { size : [400, 300], mode : inset }
-
-        actuality_illustration:
-            quality: 85
-            filters:
-                upscale: { min : [424, 185] }
-                thumbnail: { size : [424, 185], mode : outbound }
-
-        activity_vignette:
-            quality: 85
-            filters:
-                upscale: { min : [272, 232] }
-                thumbnail: { size : [272, 232], mode : outbound }
-
-        activity_cover_photo:
-            quality: 85
-            filters:
-                upscale: { min : [863, 349] }
-                thumbnail: { size : [863, 349], mode : outbound }
-
-        guest_vignette:
-            quality: 85
-            filters:
-                upscale: { min : [272, 232] }
-                thumbnail: { size : [272, 232], mode : outbound }
-
-        guest_cover_photo:
-            quality: 85
-            filters:
-                upscale: { min : [863, 349] }
-                thumbnail: { size : [863, 349], mode : outbound }
-
-        exponent_vignette:
-            quality: 85
-            filters:
-                upscale: { min : [116, 116] }
-                thumbnail: { size : [116, 116], mode : outbound }
 ```
 
 Note : If php_exif extension is not enable in your PHP container, add the following line :
