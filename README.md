@@ -5,20 +5,11 @@ Implatation of SonataAdmin for MeuhMeuhConcept
 
 ## Installation
 
-Add the repository in composer.json
-```json
-"repositories" : [
-    {
-        "type" : "vcs",
-        "url" : "git@git.meuhmeuhconcept.fr:mmc/SonataAdminBundle.git"
-    }
-],
-```
-
 Via composer
 ```bash
-composer require mmc/sonata-admin-bundle
+composer require meuhmmeuhconcept/sonata-admin-bundle
 ```
+
 Installs bundles web assets under a public web directory
 ```bash
 bin/console assets:install
