@@ -32,7 +32,7 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script src="/dist/BackBundle/tinymce/tinymce.min.js"></script>
+    <script src="/bundles/mmcsonataadmin/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({
             selector:'textarea',
@@ -47,7 +47,7 @@
                 'bullist numlist outdent indent',
                 'link'
             ].join(" | "),
-            language_url : '/dist/BackBundle/tinymce/langs/fr_FR.js',
+            language_url : '/bundles/mmcsonataadmin/tinymce/langs/fr_FR.js',
             body_class: 'tinymce',
             content_css: [
                 '/dist/FrontBundle/css/concat-front.min.css'
@@ -63,5 +63,5 @@
             ]
         });
     </script>
-    <script src="/dist/BackBundle/main.js"></script>
+    <script src="/bundles/mmcsonataadmin/main.js"></script>
 {% endblock javascripts %}
