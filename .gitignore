@@ -9,8 +9,8 @@
 .php_cs.cache
 
 #Npm
-/Resources/web/node_modules/*
-/Resources/web/node_modules/*
+src/Resources/web/node_modules/*
+src/Resources/web/node_modules/*
 
 # Bower
 /Resources/web/bower_components/*
