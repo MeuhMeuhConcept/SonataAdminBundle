@@ -8,8 +8,8 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 class UserVoter extends Voter
 {
-    const VIEW = 'ROLE_MMC_SONATA_ADMIN_USER_VIEW';
-    const EDIT = 'ROLE_MMC_SONATA_ADMIN_USER_EDIT';
+    const VIEW = 'ROLE_MMC_FOS_USER_BUNDLE_SONATA_ADMIN_USER_VIEW';
+    const EDIT = 'ROLE_MMC_FOS_USER_BUNDLE_SONATA_ADMIN_USER_EDIT';
 
     protected function supports($attribute, $subject)
     {
