@@ -67,18 +67,25 @@ twig:
     form_themes:
         - 'SonataCoreBundle:Form:datepicker.html.twig'
 ```
-Add roles hierarchy :
+Add roles hierarchy (This is an example, for more more detail see [sonata security documentation](https://sonata-project.org/bundles/admin/master/doc/reference/security.html)) :
 ```yaml
 # app/config/security.yml
     role_hierarchy:
 
-        ROLE_SONATA_ADMIN:
-            - ROLE_MMC_SONATA_ADMIN_ACTUALITY_ALL
-            - ROLE_MMC_SONATA_ADMIN_ACTIVITY_ALL
-            - ROLE_MMC_SONATA_ADMIN_EXPONENT_ALL
-            - ROLE_MMC_SONATA_ADMIN_GUEST_ALL
+        # for convenience, I decided to gather Sonata roles here
+        ROLE_SONATA_FOO_READER:
+            - ROLE_SONATA_ADMIN_DEMO_FOO_LIST
+            - ROLE_SONATA_ADMIN_DEMO_FOO_VIEW
+        ROLE_SONATA_FOO_EDITOR:
+            - ROLE_SONATA_ADMIN_DEMO_FOO_CREATE
+            - ROLE_SONATA_ADMIN_DEMO_FOO_EDIT
+        ROLE_SONATA_FOO_ADMIN:
+            - ROLE_SONATA_ADMIN_DEMO_FOO_DELETE
+            - ROLE_SONATA_ADMIN_DEMO_FOO_EXPORT
 
-        ROLE_ADMIN:             [ROLE_SONATA_ADMIN]
+        # those are the roles I will use (less verbose)
+        ROLE_STAFF:             [ROLE_USER, ROLE_SONATA_FOO_READER]
+        ROLE_ADMIN:             [ROLE_STAFF, ROLE_SONATA_FOO_EDITOR, ROLE_SONATA_FOO_ADMIN]
         ROLE_SUPER_ADMIN:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
 ```
