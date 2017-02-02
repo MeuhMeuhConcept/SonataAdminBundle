@@ -2,6 +2,8 @@
 
 namespace MMC\SonataAdminBundle\Admin;
 
+use MMC\SonataAdminBundle\Datagrid\FieldDescriptionCollection;
+use MMC\SonataAdminBundle\Exporter\Source\DataSourceIterator;
 use Sonata\AdminBundle\Admin\AbstractAdmin as BaseAbstractAdmin;
 
 class AbstractAdmin extends BaseAbstractAdmin
@@ -18,6 +20,47 @@ class AbstractAdmin extends BaseAbstractAdmin
     public function getExportFormats()
     {
         return ['csv', 'xls'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDataSourceIterator()
+    {
+        $datagrid = $this->getDatagrid();
+        $datagrid->buildPager();
+
+        $translator = $this->getConfigurationPool()
+            ->getContainer()->get('translator');
+
+        $dataSourceIterator = new DataSourceIterator(
+            $datagrid->getQuery(),
+            $this->buildExportFields(),
+            $translator,
+            500 // Size of pagination (query->limit)
+            //     high number => less request but bigger data resultset
+        );
+
+        return $dataSourceIterator;
+    }
+
+    protected function buildExportFields()
+    {
+        $columns = $this->getExportFields();
+
+        $fieldCollection = new FieldDescriptionCollection([
+            'label_pattern' => 'export.label_%s',
+            'translation_domain' => $this->getTranslationDomain(),
+        ]);
+
+        foreach ($columns as $name => $options) {
+            if (is_string($options)) {
+                $options = ['label' => $options];
+            }
+            $fieldCollection->addField($name, $options);
+        }
+
+        return $fieldCollection;
     }
 
     /**
