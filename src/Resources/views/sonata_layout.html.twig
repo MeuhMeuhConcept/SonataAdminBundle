@@ -36,6 +36,11 @@
     <script>
         tinymce.init({
             selector:'textarea',
+            setup: function(editor) {
+                editor.on('focusout', function () {
+                    tinyMCE.triggerSave();
+                });
+            },
             menubar: false,
             oninit : "setPlainText",
             plugins: [ 'link paste' ],
