@@ -27,14 +27,14 @@
         "sonata-project/admin-bundle": "^3.10.2",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1",
         "sonata-project/exporter": "^1.0",
-        "symfony/config": "3.1.*",
-        "symfony/dependency-injection": "3.1.*",
-        "symfony/form": "3.1.*",
-        "symfony/framework-bundle": "3.1.*",
-        "symfony/http-kernel": "3.1.*",
-        "symfony/options-resolver": "3.1.*",
-        "symfony/security-core": "3.1.*",
-        "symfony/translation": "3.1.*"
+        "symfony/config": "~3.1",
+        "symfony/dependency-injection": "~3.1",
+        "symfony/form": "~3.1",
+        "symfony/framework-bundle": "~3.1",
+        "symfony/http-kernel": "~3.1",
+        "symfony/options-resolver": "~3.1",
+        "symfony/security-core": "~3.1",
+        "symfony/translation": "~3.1"
     },
     "require-dev": {
         "doctrine/annotations": "^1.2",
