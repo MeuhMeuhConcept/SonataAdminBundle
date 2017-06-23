@@ -24,6 +24,14 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+                ->scalarNode('tinymce_content_css')
+                    ->defaultValue('/dist/FrontBundle/css/concat-front.min.css')
+                ->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
 }

@@ -3,7 +3,7 @@
 {% block field %}
 {% spaceless %}
     {% if value is not empty %}
-        <div class="textarea-frame" data-stylesheets="/dist/FrontBundle/css/concat-front.min.css,tintin">
+        <div class="textarea-frame" data-stylesheets="{{ mmc_sonata_admin_tinymce_content_css }}">
             {{ value|raw }}
         </div>
     {% endif %}
