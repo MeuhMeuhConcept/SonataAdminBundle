@@ -1,0 +1,13 @@
+
+{% for item in value %}
+    {% if not loop.first %}
+        <tr class="sonata-ba-view-container">
+    {% endif %}
+        <td>
+            {% block item %}
+            {% endblock item %}
+        </td>
+    {% if not loop.last %}
+        </tr>
+    {% endif %}
+{% endfor %}
