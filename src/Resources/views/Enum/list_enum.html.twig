@@ -1,6 +1,6 @@
 {% extends "SonataAdminBundle:CRUD:base_list_field.html.twig" %}
 {% block field %}
     {% spaceless %}
-            {{ value|enum_label(field_description.options.class, field_description.options.catalogue, false) }}
+            {{ value|enum_label(field_description.options.class, field_description.options.catalogue|default('messages'), field_description.options.class_prefix|default(false)) }}
     {% endspaceless %}
 {% endblock %}
