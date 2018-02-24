@@ -141,6 +141,19 @@ Note : If php_exif extension is not enable in your PHP container, add the follow
 liip_imagine.meta_data.reader.class: Imagine\Image\Metadata\DefaultMetadataReader
 ```
 
+### Show template type
+
+To insert template in edit view
+
+Configure form theme :
+```yaml
+# app/config/config.yml
+
+twig:
+    form_themes:
+        - 'MMCSonataAdminBundle:Form:show_template.html.twig'
+```
+
 ## Customize
 
 ### Sonata Admin
