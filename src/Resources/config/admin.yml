@@ -13,8 +13,14 @@ services:
             - '%form.type_extension.csrf.enabled%'
         calls:
             - [ addPager, ['pager_for_group_by_query', '@mmc_sonata_admin.pager.for_group_by_query']]
+            - [ addPager, ['pager_for_dto', '@mmc_sonata_admin.pager.for_dto']]
 
     mmc_sonata_admin.pager.for_group_by_query:
         class: 'MMC\SonataAdminBundle\Datagrid\PagerForGroupByQuery'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    mmc_sonata_admin.pager.for_dto:
+        class: 'MMC\SonataAdminBundle\Datagrid\PagerForDTO'
         arguments:
             - '@doctrine.orm.entity_manager'
