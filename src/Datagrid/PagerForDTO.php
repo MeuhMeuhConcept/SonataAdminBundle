@@ -21,4 +21,22 @@ class PagerForDTO extends PagerForGroupByQuery
 
         return $results;
     }
+
+    protected function retrieveObject($offset)
+    {
+        $queryForRetrieve = clone $this->getQuery();
+        $queryForRetrieve
+            ->setFirstResult($offset - 1)
+            ->setMaxResults(1);
+
+        $results = $queryForRetrieve->execute();
+
+        $data = $results[0];
+
+        if (is_array($data) && isset($data['object'])) {
+            return $data['object'];
+        }
+
+        return $data;
+    }
 }
