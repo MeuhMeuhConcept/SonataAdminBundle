@@ -20,7 +20,13 @@ class PagerForGroupByQuery extends BasePager
     {
         $cloneQuery = clone $this->getQuery();
 
-        $cloneQuery->select(sprintf('%s.%s', $cloneQuery->getRootAlias(), current($this->getCountColumn())));
+        $cc = current($this->getCountColumn());
+
+        if ($cc) {
+            $cloneQuery->select(sprintf('%s.%s', $cloneQuery->getRootAlias(), $cc));
+        } else {
+            $cloneQuery->select('1');
+        }
 
         $cloneQuery->resetDQLPart('orderBy');
 
