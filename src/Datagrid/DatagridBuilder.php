@@ -27,7 +27,7 @@ class DatagridBuilder extends SonataDatagridBuilder
     }
 
     /**
-     * Same function as parent but who use local Datagird class
+     * Same function as parent but who use local Datagird class.
      */
     public function getBaseDatagrid(AdminInterface $admin, array $values = [])
     {
