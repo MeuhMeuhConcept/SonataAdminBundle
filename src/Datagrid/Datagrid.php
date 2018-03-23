@@ -2,8 +2,10 @@
 
 namespace MMC\SonataAdminBundle\Datagrid;
 
+use Sonata\AdminBundle\Admin\FieldDescriptionInterface;
 use Sonata\AdminBundle\Datagrid\Datagrid as BaseDatagrid;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class Datagrid extends BaseDatagrid
