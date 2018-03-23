@@ -41,7 +41,7 @@ class DatagridBuilder extends SonataDatagridBuilder
         }
 
         $formBuilder = $this->formFactory->createNamedBuilder('filter', FormType::class, [], $defaultOptions);
-dump('tintin');
+
         return new Datagrid($admin->createQuery(), $admin->getList(), $pager, $formBuilder, $values);
     }
 }
