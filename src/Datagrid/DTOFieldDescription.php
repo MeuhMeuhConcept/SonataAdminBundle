@@ -2,8 +2,10 @@
 
 namespace MMC\SonataAdminBundle\Datagrid;
 
+use DateTime;
 use Doctrine\Common\Collections\Collection;
-use Sonata\AdminBundle\Admin\BaseFieldDescription;
+use Exception;
+use Sonata\AdminBundle\FieldDescription\BaseFieldDescription;
 
 class DTOFieldDescription extends BaseFieldDescription
 {
@@ -34,7 +36,6 @@ class DTOFieldDescription extends BaseFieldDescription
 
     public function getTargetEntity()
     {
-        return;
     }
 
     public function isIdentifier()
@@ -59,13 +60,35 @@ class DTOFieldDescription extends BaseFieldDescription
         } else {
             try {
                 $value = $this->getFieldValue($object, $this->fieldName);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $value = '';
             }
         }
 
         if ($value instanceof Collection) {
             $value = $value->toArray();
+        }
+
+        $associatedProperty = $this->getOption('associated_property');
+
+        if ($associatedProperty) {
+            if (is_array($value)) {
+                $vs = [];
+                foreach ($value as $v) {
+                    try {
+                        $vs[] = $this->getFieldValue($v, $associatedProperty);
+                    } catch (Exception $e) {
+                        $vs[] = $v;
+                    }
+                }
+                $value = $vs;
+            } else {
+                try {
+                    $value = $this->getFieldValue($value, $associatedProperty);
+                } catch (Exception $e) {
+                    $value = '';
+                }
+            }
         }
 
         // FIXME: use template for the rendering
@@ -76,22 +99,28 @@ class DTOFieldDescription extends BaseFieldDescription
         } else {
             switch ($this->getType()) {
                 case 'datetime':
-                    if ($value instanceof \DateTime) {
+                    if ($value instanceof DateTime) {
                         $value = $value->format($this->getOption('format', 'Y-m-d H:i:s'));
                     } else {
                         $value = '';
                     }
+
                     break;
+
                 case 'date':
-                    if ($value instanceof \DateTime) {
+                    if ($value instanceof DateTime) {
                         $value = $value->format($this->getOption('format', 'Y-m-d'));
                     } else {
                         $value = '';
                     }
+
                     break;
+
                 case 'boolean':
                     $value = $value ? 'yes' : 'no';
+
                     break;
+
                 case 'enum':
                 $class = isset($this->options['class']) ? $this->options['class'] : null;
                 $classPrefixed = isset($this->options['classPrefixed']) ? $this->options['classPrefixed'] : null;
@@ -103,6 +132,7 @@ class DTOFieldDescription extends BaseFieldDescription
                         call_user_func([$class, 'getConstants'], 'strtolower', $classPrefixed, $namespaceSeparator)
                     );
                 }
+
                     break;
             }
         }
