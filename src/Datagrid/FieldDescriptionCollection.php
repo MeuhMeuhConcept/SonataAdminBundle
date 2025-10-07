@@ -37,7 +37,9 @@ class FieldDescriptionCollection extends BaseFieldDescriptionCollection
             $options['label'] = $name;
         }
 
-        $options['label'] = sprintf($this->options['label_pattern'], $options['label']);
+        if (!isset($options['skip_label_pattern']) || !$options['skip_label_pattern']) {
+            $options['label'] = sprintf($this->options['label_pattern'], $options['label']);
+        }
 
         if (!isset($options['translation_domain'])) {
             $options['translation_domain'] = $this->options['translation_domain'];
