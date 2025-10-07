@@ -2,9 +2,10 @@
 
 namespace MMC\SonataAdminBundle\Exporter\Source;
 
-use Exporter\Source\SourceIteratorInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sonata\AdminBundle\Admin\FieldDescriptionCollection;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
+use Sonata\Exporter\Source\SourceIteratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class DataSourceIterator implements SourceIteratorInterface
@@ -34,10 +35,11 @@ class DataSourceIterator implements SourceIteratorInterface
         return $this->query
             ->setFirstResult($page * $this->pageSize)
             ->setMaxResults($this->pageSize)
-            ->execute();
+            ->execute()
+        ;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -79,14 +81,14 @@ class DataSourceIterator implements SourceIteratorInterface
         return $this->position;
     }
 
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
 
-    public function valid()
+    public function valid(): bool
     {
-        return $this->getItem($this->position) !== null;
+        return null !== $this->getItem($this->position);
     }
 
     protected function getItem($position)
@@ -100,14 +102,13 @@ class DataSourceIterator implements SourceIteratorInterface
         }
 
         if ($this->currentPage !== $page) {
-            $this->items = $this->buildPage($page);
+            $res = $this->buildPage($page);
+            $this->items = $res instanceof Paginator ? $res->getIterator() : $res;
             $this->currentPage = $page;
         }
 
         if (isset($this->items[$pagePosition])) {
             return $this->items[$pagePosition];
         }
-
-        return;
     }
 }
